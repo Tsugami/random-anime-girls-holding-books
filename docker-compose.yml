@@ -9,8 +9,17 @@ services:
       POSTGRES_DB: mydb
     ports:
       - 5432:5432
+    networks:
+      - db-network
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - db-network
+
+
+networks: 
+  db-network:
+    driver: bridge

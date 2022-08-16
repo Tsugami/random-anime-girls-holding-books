@@ -20,4 +20,5 @@ model Images {
   createdAt DateTime @default(now())
 
   @@map("images")
+  @@index(lang)
 }
