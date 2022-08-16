@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "populate": "ts-node ./scripts/populate.ts --project ./scripts/tsconfig.json"
   },
   "dependencies": {
     "@prisma/client": "4.2.1",
     "next": "12.2.5",
+    "octokit": "^2.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -24,6 +26,7 @@
     "postcss": "^8.4.16",
     "prisma": "^4.2.1",
     "tailwindcss": "^3.1.8",
+    "ts-node": "^10.9.1",
     "typescript": "4.7.4"
   }
 }

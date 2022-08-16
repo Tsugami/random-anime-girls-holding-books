@@ -10,8 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Image {
-  path  String @id
-  lang  String
-  title String
+model Images {
+  path      String @id
+  lang      String
+  title     String
+  extension String
+  size      Int
+
+  createdAt DateTime @default(now())
+
+  @@map("images")
 }
