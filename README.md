@@ -4,6 +4,6 @@ Random images from [Anime-Girls-Holding-Programming-Books](https://github.com/ca
 
 ## Todo
 
-[ ] - Get last repo updates (it is fixed currently)
-[ ] - Schedule for populate database
-[ ] - Search page
+- [ ] Get last repo updates (it is fixed currently)
+- [ ] Schedule for populate database
+- [ ] Search page
