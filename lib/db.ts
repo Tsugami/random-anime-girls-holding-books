@@ -1,11 +1,24 @@
-import { Images } from "@prisma/client";
 import { prisma } from "./prisma";
 import { getImageUrl } from "./utils";
 
+export interface Image {
+  path: string;
+  lang: string;
+  title: string;
+  extension: string;
+  size: number;
+}
+
 const randomImage = async () => {
   const images = await prisma.$queryRaw<
-    Images[]
-  >`SELECT * FROM images ORDER BY random() LIMIT 1`;
+  Image[]
+  >`SELECT
+  path,
+  lang,
+  title,
+  extension,
+  size
+  FROM images ORDER BY random() LIMIT 1`;
   return images[0];
 };
 
@@ -14,9 +27,15 @@ const randomImageByTags = async (tags: string[]) => {
   return randomImage();
 };
 
-export const getRandomImageUrl = async (tags: string[]) => {
+
+export const getRandomImage = async (tags: string[] = []): Promise<Image> => {
   const image = tags.length
     ? await randomImageByTags(tags)
     : await randomImage();
-  return getImageUrl(image.path);
+  return image
+};
+
+
+export const getRandomImageUrl = async (tags: string[] = []) => {
+  return getImageUrl((await getRandomImage(tags)).path);
 };
